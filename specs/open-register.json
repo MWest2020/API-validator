@@ -1,0 +1,444 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenRegister API",
+    "description": "API for the OpenRegister application",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://opencatalogi.test.commonground.nu/apps/openregister"
+    }
+  ],
+  "tags": [
+    {
+      "name": "registers",
+      "description": "Operations related to registers"
+    },
+    {
+      "name": "schemas",
+      "description": "Operations related to schemas and their properties"
+    },
+    {
+      "name": "sources",
+      "description": "Operations related to data sources"
+    }
+  ],
+  "paths": {
+    "/api/registers": {
+      "get": {
+        "tags": ["registers"],
+        "summary": "List all registers",
+        "operationId": "listRegisters",
+        "responses": {
+          "200": {
+            "description": "A list of registers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Register" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["registers"],
+        "summary": "Create a new register",
+        "operationId": "createRegister",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RegisterInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created register",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Register" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/api/registers/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": { "type": "string" }
+        }
+      ],
+      "get": {
+        "tags": ["registers"],
+        "summary": "Get a register by ID",
+        "operationId": "getRegisterById",
+        "responses": {
+          "200": {
+            "description": "A register",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Register" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["registers"],
+        "summary": "Update a register",
+        "operationId": "updateRegister",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RegisterInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated register",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Register" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["registers"],
+        "summary": "Delete a register",
+        "operationId": "deleteRegister",
+        "responses": {
+          "204": { "description": "Register deleted" },
+          "404": { "description": "Not found" }
+        }
+      }
+    },
+    "/api/schemas": {
+      "get": {
+        "tags": ["schemas"],
+        "summary": "List all schemas",
+        "operationId": "listSchemas",
+        "responses": {
+          "200": {
+            "description": "A list of schemas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Schema" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["schemas"],
+        "summary": "Create a new schema",
+        "operationId": "createSchema",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SchemaInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created schema",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Schema" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/api/schemas/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": { "type": "string" }
+        }
+      ],
+      "get": {
+        "tags": ["schemas"],
+        "summary": "Get a schema by ID",
+        "operationId": "getSchemaById",
+        "responses": {
+          "200": {
+            "description": "A schema",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Schema" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["schemas"],
+        "summary": "Update a schema",
+        "operationId": "updateSchema",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SchemaInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated schema",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Schema" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["schemas"],
+        "summary": "Delete a schema",
+        "operationId": "deleteSchema",
+        "responses": {
+          "204": { "description": "Schema deleted" },
+          "404": { "description": "Not found" }
+        }
+      }
+    },
+    "/api/sources": {
+      "get": {
+        "tags": ["sources"],
+        "summary": "List all sources",
+        "operationId": "listSources",
+        "responses": {
+          "200": {
+            "description": "A list of sources",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Source" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["sources"],
+        "summary": "Create a new source",
+        "operationId": "createSource",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SourceInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created source",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Source" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/api/sources/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": { "type": "string" }
+        }
+      ],
+      "get": {
+        "tags": ["sources"],
+        "summary": "Get a source by ID",
+        "operationId": "getSourceById",
+        "responses": {
+          "200": {
+            "description": "A source",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Source" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["sources"],
+        "summary": "Update a source",
+        "operationId": "updateSource",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SourceInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated source",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Source" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["sources"],
+        "summary": "Delete a source",
+        "operationId": "deleteSource",
+        "responses": {
+          "204": { "description": "Source deleted" },
+          "404": { "description": "Not found" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Register": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "uuid": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["title", "version"]
+      },
+      "RegisterInput": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["title", "version"]
+      },
+      "Schema": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "uuid": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" },
+          "properties": { "type": "object" }
+        },
+        "required": ["title", "version"]
+      },
+      "SchemaInput": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" },
+          "properties": { "type": "object" }
+        },
+        "required": ["title", "version"]
+      },
+      "Source": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "uuid": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" },
+          "databaseUrl": { "type": "string" },
+          "type": { "type": "string" }
+        },
+        "required": ["title", "version"]
+      },
+      "SourceInput": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" },
+          "databaseUrl": { "type": "string" },
+          "type": { "type": "string" }
+        },
+        "required": ["title", "version"]
+      }
+    }
+  }
+} 

@@ -1,0 +1,28 @@
+# Example API paths to test
+# Lines starting with # are comments and will be ignored
+# Place one path per line
+
+# API Collections
+/api/registers
+/api/schemas
+/api/sources
+/api/objects
+/api/users
+/api/profiles
+
+# Individual resources
+/api/registers/1
+/api/schemas/1
+/api/sources/1
+
+# Documentation
+/docs
+/swagger
+/redoc
+/openapi.json
+/openapi.yaml
+
+# Custom endpoints
+/api/health
+/api/status
+/api/version 

@@ -1,0 +1,43 @@
+2025-03-14 16:59:06,431 - INFO - Loading OpenAPI spec from specs/open-register.json
+2025-03-14 16:59:06,431 - INFO - Successfully loaded and validated OpenAPI spec version 3.1.0
+2025-03-14 16:59:06,431 - INFO - Using resource path: api/schemas
+2025-03-14 16:59:06,432 - INFO - Step 1: Getting resource collection from https://opencatalogi.test.commonground.nu/apps/openregister/api/schemas
+2025-03-14 16:59:08,028 - INFO - Successfully retrieved collection with 1 items
+2025-03-14 16:59:08,028 - INFO - Step 2: Creating a new resource at https://opencatalogi.test.commonground.nu/apps/openregister/api/schemas
+2025-03-14 16:59:08,029 - INFO - Resolving schema reference: #/components/schemas/SchemaInput
+2025-03-14 16:59:08,029 - INFO - Found schema for content-type application/json: {
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "properties": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "title",
+    "version"
+  ]
+}
+2025-03-14 16:59:08,029 - INFO - Generated test data: {
+  "title": "Test schemas 20250314165908",
+  "version": "1.0.0",
+  "description": "Test description created by CRUD flow tester"
+}
+2025-03-14 16:59:08,888 - INFO - Successfully created resource with ID: 69
+2025-03-14 16:59:08,888 - INFO - Step 3: Getting specific resource from https://opencatalogi.test.commonground.nu/apps/openregister/api/schemas/69
+2025-03-14 16:59:08,938 - INFO - Successfully retrieved resource with ID: 69
+2025-03-14 16:59:08,938 - INFO - Step 4: Updating resource at https://opencatalogi.test.commonground.nu/apps/openregister/api/schemas/69
+2025-03-14 16:59:08,938 - INFO - Sending update data: {
+  "title": "Test schemas 20250314165908 - Updated",
+  "version": "1.0.0",
+  "description": "Updated via CRUD flow tester at 2025-03-14 16:59:08"
+}
+2025-03-14 16:59:08,938 - ERROR - Exception during PUT: 'CrudFlowTester' object has no attribute '_get_auth'

@@ -1,0 +1,6 @@
+requests==2.31.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
+jsonschema==4.20.0
+openapi-spec-validator==0.7.1
+schemathesis==3.25.0 
